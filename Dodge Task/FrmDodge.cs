@@ -55,15 +55,16 @@ namespace Dodge_Task
             for (int i = 0; i < 7; i++)
             {
                 planet[i].MovePlanet();
+
                 //if a planet reaches the bottom of the Game Area reposition it at the top
                 if (planet[i].y >= PnlGame.Height)
                 {
-                    planet[i].y += 5;
+                    planet[i].y = 10;
                 }
-
 
             }
             PnlGame.Invalidate();//makes the paint event fire to redraw the panel
+
         }
     }
 }
