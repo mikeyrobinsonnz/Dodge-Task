@@ -21,6 +21,7 @@ namespace Dodge_Task
         Spaceship spaceship = new Spaceship();
 
         bool left, right;
+        int score, lives;
         string move;
 
 
@@ -66,6 +67,8 @@ namespace Dodge_Task
                 //if a planet reaches the bottom of the Game Area reposition it at the top
                 if (planet[i].y >= PnlGame.Height)
                 {
+                    score += 1;//update the score
+                    lblScore.Text = score.ToString();// display score
                     planet[i].y = 10;
                 }
 
@@ -102,6 +105,18 @@ namespace Dodge_Task
             }
 
         }
+
+        private void CheckLives()
+        {
+            if (lives == 0)
+            {
+                TmrPlanet.Enabled = false;
+                TmrShip.Enabled = false;
+                MessageBox.Show("Game Over");
+
+            }
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
