@@ -64,6 +64,16 @@ namespace Dodge_Task
             {
                 planet[i].MovePlanet();
 
+                if (spaceship.spaceRec.IntersectsWith(planet[i].planetRec))
+                {
+                    //reset planet[i] back to top of panel
+                    planet[i].y = 30; // set  y value of planetRec
+                    lives -= 1;// lose a life
+                    txtLives.Text = lives.ToString();// display number of lives
+                    CheckLives();
+                }
+
+
                 //if a planet reaches the bottom of the Game Area reposition it at the top
                 if (planet[i].y >= PnlGame.Height)
                 {
@@ -125,7 +135,7 @@ namespace Dodge_Task
 
         private void FrmDodge_Load(object sender, EventArgs e)
         {
-
+            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
         }
     }
 }
