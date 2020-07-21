@@ -127,6 +127,21 @@ namespace Dodge_Task
             }
         }
 
+        private void MnuStart_Click(object sender, EventArgs e)
+        {
+            score = 0;
+            lblScore.Text = score.ToString();
+            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
+            TmrPlanet.Enabled = true;
+            TmrShip.Enabled = true;
+
+        }
+
+        private void MnuStop_Click(object sender, EventArgs e)
+        {
+            TmrShip.Enabled = false;
+            TmrPlanet.Enabled = false;
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
